@@ -6,7 +6,7 @@ import { auth } from '../../firebase/firebase.init';
 
 const Navbar = () => {
     const { user } = use(HistoryContext);
-    console.log(user?.email);
+    // console.log(user?.email);
     const handleSignOut = () => {
         signOut(auth)
             .then(result => console.log('sign-out success'))

@@ -41,7 +41,7 @@ const router = createBrowserRouter([
             {
                 path: '/shareartifacts/:email',
                 element: <MyArtifacts></MyArtifacts>,
-                loader: ({params})=> fetch(`http://localhost:3000/api/shareartifacts/${params.email}`),
+                loader: ({params})=> fetch(`http://localhost:3000/api/shareartifacts/email/${params.email}`),
             },
             {
                 path: '/myartifacts/:id',
@@ -54,8 +54,9 @@ const router = createBrowserRouter([
                 loader: ()=> fetch('http://localhost:3000/api/allartifacts'),
             },
             {
-                path: '/addartifactsdetails/:id',
-                element: <PrivatePage><AritfactsDetails></AritfactsDetails></PrivatePage>
+                path: '/artifactsdetails/:id',
+                element: <PrivatePage><AritfactsDetails></AritfactsDetails></PrivatePage>,
+                loader: ({params})=> fetch(`http://localhost:3000/api/allartifacts/${params.id}`),
             },
             {
                 path: '/updaterprofile',

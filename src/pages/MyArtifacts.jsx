@@ -1,5 +1,7 @@
 import React, { use, useState } from 'react';
 import { Link, useLoaderData } from 'react-router';
+import { MdDeleteForever } from "react-icons/md";
+import { RxUpdate } from "react-icons/rx";
 import Swal from 'sweetalert2';
 import Loading from './Loading';
 import { HistoryContext } from '../contexts/HistoryContext';
@@ -25,7 +27,7 @@ const MyArtifacts = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`https://localhost:3000/api/shareartifacts/${id}`, {
+                fetch(`http://localhost:3000/api/shareartifacts/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -60,11 +62,12 @@ const MyArtifacts = () => {
                 <thead className="bg-gray-100">
                     <tr>
                         <th className="px-4 py-2">No</th>
-                        <th className="px-4 py-2">Title</th>
-                        <th className="px-4 py-2">Category</th>
-                        <th className="px-4 py-2">Topic</th>
-                        <th className="px-4 py-2">Difficulity</th>
-                        <th className="px-4 py-2">Image</th>
+                        <th className="px-4 py-2">Name</th>
+                        <th className="px-4 py-2">artifactType</th>
+                        <th className="px-4 py-2">discoveredAt</th>
+                        <th className="px-4 py-2">discoveredBy</th>
+                        <th className="px-4 py-2">presentLocation</th>
+                        <th className="px-4 py-2">image</th>
                         <th className="px-4 py-2">Update</th>
                         <th className="px-4 py-2">Delete</th>
                     </tr>
@@ -74,22 +77,23 @@ const MyArtifacts = () => {
                         allArtifacts.map((artifacts, index) => (
                             <tr key={artifacts._id} className="hover:bg-gray-50">
                                 <td className="px-4 py-2">{index + 1}</td>
-                                <td className="px-4 py-2">{artifacts.title}</td>
-                                <td className="px-4 py-2">{artifacts.category}</td>
-                                <td className="px-4 py-2">{artifacts.topic}</td>
-                                <td className="px-4 py-2">{artifacts.difficulty}</td>
+                                <td className="px-4 py-2">{artifacts.artifactName}</td>
+                                <td className="px-4 py-2">{artifacts.artifactType}</td>
+                                <td className="px-4 py-2">{artifacts.discoveredAt}</td>
+                                <td className="px-4 py-2">{artifacts.discoveredBy}</td>
+                                <td className="px-4 py-2">{artifacts.presentLocation}</td>
                                 <td className="px-4 py-2">
                                     <img
                                         className="w-12 h-12 object-cover mx-auto rounded-full"
-                                        src={artifacts?.imageUrl}
+                                        src={artifacts?.image}
                                         alt={artifacts.title}
                                     />
                                 </td>
                                 <td className="px-4 py-2">
-                                    <Link to={`/updateartifacts/${artifacts._id}`}><button artifacts={artifacts} className='btn btn-ghost btn-xs'>Update</button></Link>
+                                    <Link to={`/updateartifacts/${artifacts._id}`}><button artifacts={artifacts} className='btn btn-ghost btn-xs'><RxUpdate size='22' /></button></Link>
                                 </td>
                                 <td className="px-4 py-2">
-                                    <button onClick={() => handleartifactsDelete(artifacts._id)} className="btn btn-ghost btn-xs">Delete</button>
+                                    <button onClick={() => handleartifactsDelete(artifacts._id)} className="btn btn-ghost btn-xs"><MdDeleteForever size='22' /></button>
                                 </td>
                             </tr>
                         ))

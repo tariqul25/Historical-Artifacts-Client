@@ -30,8 +30,8 @@ const AllArtifacts = () => {
                                     <div className="card-actions justify-end flex-wrap gap-2">
                                         <div className="badge badge-outline w-full">{artifacts.presentLocation}</div>
                                         <div className='flex items-center justify-between w-full '>
-                                            <div className="badge badge-outline">Created At: {artifacts.createdAt}</div>
-                                           <Link to={`/allartifacts/${artifacts._id}`} ><button className='btn btn-outline btn-xs'>update artifacts</button></Link>
+                                            <div className="badge badge-outline text-xs">Created At: {artifacts.createdAt}</div>
+                                           <Link to={`/artifactsdetails/${artifacts._id}`} ><button className='btn btn-outline btn-xs'>details artifacts</button></Link>
                                         </div>
                                     </div>
                                 </div>
