@@ -6,6 +6,7 @@ import { auth } from '../../firebase/firebase.init';
 
 const Navbar = () => {
     const { user } = use(HistoryContext);
+    console.log(user?.email);
     const handleSignOut = () => {
         signOut(auth)
             .then(result => console.log('sign-out success'))
@@ -49,7 +50,7 @@ const Navbar = () => {
                                     <li><NavLink to='/all-artifacts'>All-Artifacts</NavLink></li>
                                     <li><NavLink to='/add-artifacts'>Add-Artifacts</NavLink></li>
                                 </div>
-                                <li><NavLink to='/my-artifacts'>My-Artifacts</NavLink></li>
+                                <li><NavLink to={`/shareartifacts/${user?.email}`}>My-Artifacts</NavLink></li>
                                 <li><NavLink to='/liked-artifacts'>Liked Artifacts</NavLink></li>
                                 <li><p onClick={handleSignOut}>Logout</p></li>
                             </ul>

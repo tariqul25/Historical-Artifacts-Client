@@ -1,16 +1,18 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 
 const AllArtifacts = () => {
     const AllArtifacts = useLoaderData();
-    console.log(AllArtifacts);
+    // console.log(AllArtifacts);
 
     return (
         <div className='flex justify-center py-6'>
             <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl px-4'>
                 {
                     AllArtifacts.map(artifacts =>
+                        
                         <div key={artifacts.id}>
+                            
                             <div className="card shadow-sm flex flex-col h-full">
                                 <figure>
                                     <img
@@ -29,7 +31,7 @@ const AllArtifacts = () => {
                                         <div className="badge badge-outline w-full">{artifacts.presentLocation}</div>
                                         <div className='flex items-center justify-between w-full '>
                                             <div className="badge badge-outline">Created At: {artifacts.createdAt}</div>
-                                            <button className='btn btn-outline btn-sm'>View Details</button>
+                                           <Link to={`/allartifacts/${artifacts._id}`} ><button className='btn btn-outline btn-xs'>update artifacts</button></Link>
                                         </div>
                                     </div>
                                 </div>

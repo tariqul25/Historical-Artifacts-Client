@@ -7,7 +7,6 @@ import Banner from "../components/Banner/Banner";
 import AllArtifacts from "../pages/AllArtifacts";
 import AddArtifacts from "../pages/AddArtifacts";
 import PrivatePage from "../pages/PrivatePage";
-// import ShareArtifacts from "../pages/ShareArtifacts";
 import UpdateArtifacts from "../pages/UpdateArtifacts";
 import Errorpage from "../pages/Errorpage";
 import AritfactsDetails from "../pages/AritfactsDetails";
@@ -40,8 +39,14 @@ const router = createBrowserRouter([
                 element: <PrivatePage><AddArtifacts></AddArtifacts></PrivatePage>
             },
             {
-                path: 'my-artifacts/:email',
-                element: <MyArtifacts></MyArtifacts>
+                path: '/shareartifacts/:email',
+                element: <MyArtifacts></MyArtifacts>,
+                loader: ({params})=> fetch(`http://localhost:3000/api/shareartifacts/${params.email}`),
+            },
+            {
+                path: '/myartifacts/:id',
+                element: <UpdateArtifacts></UpdateArtifacts>,
+                loader: ({params})=> fetch(`http://localhost:3000/api/shareartifacts/${params.id}`),
             },
             {
                 path: '/all-artifacts',
@@ -51,10 +56,6 @@ const router = createBrowserRouter([
             {
                 path: '/addartifactsdetails/:id',
                 element: <PrivatePage><AritfactsDetails></AritfactsDetails></PrivatePage>
-            },
-            {
-                path: '/updateartifacts/:id',
-                element: <PrivatePage><UpdateArtifacts></UpdateArtifacts></PrivatePage>
             },
             {
                 path: '/updaterprofile',
