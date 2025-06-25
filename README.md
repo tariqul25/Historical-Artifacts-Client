@@ -7,10 +7,9 @@ A full-stack web application that allows users to **browse, add, like, and manag
 
 ## 🌐 Live Site & Repositories
 
-- 🔗 Live Website: [https://your-live-link.com](https://your-live-link.com)
-- 🧠 Client Repo: [GitHub - Client](https://github.com/your-username/artifacts-client)
-- 🧪 Server Repo: [GitHub - Server](https://github.com/your-username/artifacts-server)
-
+- 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
+- 🧠 Client Repo: [GitHub - Client](https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-tariqul25)
+- 🧪 Server Repo: [GitHub - Server](https://github.com/Programming-Hero-Web-Course4/b11a11-server-side-tariqul25)
 ---
 
 ## 🚀 Key Features
