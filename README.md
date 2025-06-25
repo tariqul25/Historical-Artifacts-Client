@@ -1,12 +1,89 @@
-# React + Vite
+#  Historical Artifacts Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application that allows users to **browse, add, like, and manage historical artifacts** such as the Rosetta Stone or Antikythera Mechanism. Built with React, Node.js, MongoDB, and Firebase, the platform offers a secure, responsive, and interactive user experience.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌐 Live Site & Repositories
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔗 Live Website: [https://your-live-link.com](https://your-live-link.com)
+- 🧠 Client Repo: [GitHub - Client](https://github.com/your-username/artifacts-client)
+- 🧪 Server Repo: [GitHub - Server](https://github.com/your-username/artifacts-server)
+
+---
+
+## 🚀 Key Features
+
+- 🔐 Firebase Authentication (Email/Password & Google)
+- 🛡️ JWT-secured Private Routes
+- 🧾 Add, Update, Delete, and Like Artifacts
+- 🔍 Search by Artifact Name
+- 💙 Toggle Like & Dislike
+- 📜 View My Artifacts & Liked Artifacts
+- 🖼️ Image-based Card Display with Detail Page
+- 🧑 Conditional Navbar with Profile Dropdown
+- 🎯 Dynamic Route Titles
+- 🌀 Loading Spinners & Toast Alerts
+- 📱 Responsive Design
+
+---
+
+## 🛠️ Technologies Used
+
+### Frontend:
+- React.js
+- React Router DOM
+- Tailwind CSS + Flowbite
+- React Hook Form
+- Axios
+- Firebase
+- Framer Motion
+- SweetAlert2 / React Toastify
+
+### Backend:
+- Node.js
+- Express.js
+- MongoDB
+- JSON Web Token (JWT)
+- CORS, Dotenv, Body-Parser
+
+---
+
+## 📦 Dependencies
+
+### 🖥️ Client Side Dependencies
+
+- @chakra-ui/react
+- @tailwindcss/vite
+- axios
+- firebase
+- firebase-admin
+- lottie-react
+- react
+- react-dom
+- react-icons
+- react-router
+- sweetalert2
+- swiper
+- tailwind
+- tailwindcss
+
+### 🧪 Server Side Dependencies
+
+- express
+- cors
+- dotenv
+- mongodb
+- jsonwebtoken
+- firebase-admin
+- nodemon
+
+---
+
+## 🖥️ How to Run on Local Machine
+
+### 1. Clone the Repositories
+```bash
+git clone https://github.com/your-username/artifacts-client
+git clone https://github.com/your-username/artifacts-server
