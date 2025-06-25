@@ -8,8 +8,8 @@ A full-stack web application that allows users to **browse, add, like, and manag
 ## 🌐 Live Site & Repositories
 
 - 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
-- 🧠 Client Repo: [GitHub - Client](https://github.com/tariqul25/Historical-Artifacts-Client)
-- 🧪 Server Repo: [GitHub - Server](https://github.com/tariqul25/Historical-Artifacts-Server)
+- 🧠 Client Repo:(https://github.com/tariqul25/Historical-Artifacts-Client)
+- 🧪 Server Repo: (https://github.com/tariqul25/Historical-Artifacts-Server)
 ---
 
 ## 🚀 Key Features
