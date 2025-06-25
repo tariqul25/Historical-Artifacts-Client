@@ -8,7 +8,7 @@ A full-stack web application that allows users to **browse, add, like, and manag
 ## 🌐 Live Site & Repositories
 
 - 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
-- 🧠 Client Repo: [GitHub - Client]([https://github.com/Programming-Hero-Web-Course4/b11a11-client-side-tariqul25](https://github.com/tariqul25/Garden-Guidance-Client))
+- 🧠 Client Repo: [GitHub - Client](https://github.com/tariqul25/Historical-Artifacts-Client)
 - 🧪 Server Repo: [GitHub - Server](https://github.com/tariqul25/Historical-Artifacts-Server)
 ---
 
