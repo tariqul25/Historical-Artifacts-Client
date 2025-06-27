@@ -1,15 +1,15 @@
-#  Historical Artifacts Tracker
+# Historical Artifacts Tracker
 
 A full-stack web application that allows users to **browse, add, like, and manage historical artifacts** such as the Rosetta Stone or Antikythera Mechanism. Built with React, Node.js, MongoDB, and Firebase, the platform offers a secure, responsive, and interactive user experience.
-
 
 ---
 
 ## 🌐 Live Site & Repositories
 
-## - 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
-- 🧠 Client Repo:[Github-Client](https://github.com/tariqul25/Historical-Artifacts-Client)
-- 🧪 Server Repo: [Github-Server](https://github.com/tariqul25/Historical-Artifacts-Server)
+- 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
+- 🧠 Client Repo: [GitHub-Client](https://github.com/tariqul25/Historical-Artifacts-Client)
+- 🧪 Server Repo: [GitHub-Server](https://github.com/tariqul25/Historical-Artifacts-Server)
+
 ---
 
 ## 🚀 Key Features
@@ -37,8 +37,7 @@ A full-stack web application that allows users to **browse, add, like, and manag
 - React Hook Form
 - Axios
 - Firebase
-- Framer Motion
-- SweetAlert2 / React Toastify
+- SweetAlert2 
 
 ### Backend:
 - Node.js
@@ -51,52 +50,35 @@ A full-stack web application that allows users to **browse, add, like, and manag
 
 ## 📦 Dependencies
 
-### 🖥️ Client Side Dependencies
-
-## Dependencies
-
-### 🖥️ Client Side Dependencies
-
+### Client Side
 ```json
 {
-  "@chakra-ui/react",
-  "@tailwindcss/vite",
-  "axios",
-  "firebase",
-  "firebase-admin",
-  "lottie-react",
-  "react",
-  "react-dom",
-  "react-icons",
-  "react-router",
-  "sweetalert2",
-  "swiper",
-  "tailwind",
-  "tailwindcss"
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.0",
+    "@tailwindcss/vite": "^0.0.1",
+    "axios": "^1.4.0",
+    "firebase": "^10.1.0",
+    "firebase-admin": "^11.8.0",
+    "lottie-react": "^2.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.9.0",
+    "react-router": "^6.14.1",
+    "sweetalert2": "^11.7.12",
+    "swiper": "^10.0.4",
+    "tailwindcss": "^3.3.3"
+  }
 }
 
-### 🧪 Server Side Dependencies
-```json
+
 {
-  "express",
-  "cors",
-  "dotenv",
-  "mongodb",
-  "jsonwebtoken",
-  "firebase-admin",
-  "nodemon"
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "mongodb": "^5.7.0",
+    "jsonwebtoken": "^9.0.1",
+    "firebase-admin": "^11.8.0",
+    "nodemon": "^3.0.1"
+  }
 }
-
-### 🧪 Install Dependencies
-
-npm install
-
-
----
-
-## 🖥️ How to Run on Local Machine
-
-### 1. Clone the Repositories
-```bash
-git clone https://github.com/tariqul25/Historical-Artifacts-Client
-git clone https://github.com/tariqul25/Historical-Artifacts-Server
