@@ -7,9 +7,9 @@ A full-stack web application that allows users to **browse, add, like, and manag
 
 ## 🌐 Live Site & Repositories
 
-- 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
-- 🧠 Client Repo:(https://github.com/tariqul25/Historical-Artifacts-Client)
-- 🧪 Server Repo: (https://github.com/tariqul25/Historical-Artifacts-Server)
+## - 🔗 Live Website: [https://historical-artifacts-tra-b9b41.web.app/](https://historical-artifacts-tra-b9b41.web.app/)
+- 🧠 Client Repo:[Github-Client](https://github.com/tariqul25/Historical-Artifacts-Client)
+- 🧪 Server Repo: [Github-Server](https://github.com/tariqul25/Historical-Artifacts-Server)
 ---
 
 ## 🚀 Key Features
@@ -53,30 +53,44 @@ A full-stack web application that allows users to **browse, add, like, and manag
 
 ### 🖥️ Client Side Dependencies
 
-- @chakra-ui/react
-- @tailwindcss/vite
-- axios
-- firebase
-- firebase-admin
-- lottie-react
-- react
-- react-dom
-- react-icons
-- react-router
-- sweetalert2
-- swiper
-- tailwind
-- tailwindcss
+## Dependencies
+
+### 🖥️ Client Side Dependencies
+
+```json
+{
+  "@chakra-ui/react",
+  "@tailwindcss/vite",
+  "axios",
+  "firebase",
+  "firebase-admin",
+  "lottie-react",
+  "react",
+  "react-dom",
+  "react-icons",
+  "react-router",
+  "sweetalert2",
+  "swiper",
+  "tailwind",
+  "tailwindcss"
+}
 
 ### 🧪 Server Side Dependencies
+```json
+{
+  "express",
+  "cors",
+  "dotenv",
+  "mongodb",
+  "jsonwebtoken",
+  "firebase-admin",
+  "nodemon"
+}
 
-- express
-- cors
-- dotenv
-- mongodb
-- jsonwebtoken
-- firebase-admin
-- nodemon
+### 🧪 Install Dependencies
+
+npm install
+
 
 ---
 
@@ -84,5 +98,5 @@ A full-stack web application that allows users to **browse, add, like, and manag
 
 ### 1. Clone the Repositories
 ```bash
-git clone https://github.com/your-username/artifacts-client
-git clone https://github.com/your-username/artifacts-server
+git clone https://github.com/tariqul25/Historical-Artifacts-Client
+git clone https://github.com/tariqul25/Historical-Artifacts-Server
