@@ -1,32 +1,19 @@
 import React from 'react';
-<<<<<<< HEAD
-// import { useRouteError } from 'react-router';
 
 
 const ErrorPage = () => {
-  // const error = useRouteError();
-  // console.log(error);
 
   return (
-    <div className="text-center mt-20">
-      <h1 className="text-4xl font-bold text-red-600">Oops!</h1>
-      <p className="text-lg">Something went wrong.</p>
-      {/* <p className="italic">{error.statusText || error.message}</p> */}
-      <p className="italic text-7xl">404</p>
+    <div className="min-h-screen flex items-center justify-center bg-base-200">
+      <div className="text-center">
+        <h1 className="text-4xl font-bold mb-4">Oops!</h1>
+        <p className="text-3xl text-gray-600 mb-4"> Page not found</p>
+        <a href="/" className="text-amber-600 hover:text-amber-900 underline">
+          Return to Home
+        </a>
+      </div>
     </div>
   );
 };
 
 export default ErrorPage;
-=======
-
-const Errorpage = () => {
-    return (
-        <div>
-            <p>error</p>
-        </div>
-    );
-};
-
-export default Errorpage;
->>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b

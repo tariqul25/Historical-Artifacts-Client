@@ -1,5 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
 import spinnnerLottie from '../assets/lotties/spinner.json'
 import Lottie from 'lottie-react';
 
@@ -15,14 +14,6 @@ const Loading = () => {
   />
 </div>
 
-=======
-
-const Loading = () => {
-    return (
-        <div>
-            <p>loading....</p>
-        </div>
->>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
     );
 };
 

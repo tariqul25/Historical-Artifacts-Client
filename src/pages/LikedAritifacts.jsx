@@ -60,7 +60,7 @@ const LikedArtifacts = () => {
                   You haven't liked any artifacts yet. Start exploring and like the ones that interest you!
                 </p>
                 <Link
-                  to="/artifacts"
+                  to="/all-artifacts"
                   className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded"
                 >
                   <Eye className="w-4 h-4 mr-2" />
