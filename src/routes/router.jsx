@@ -1,0 +1,80 @@
+import React from 'react';
+import { createBrowserRouter } from "react-router";
+import Root from "../layout/Root";
+import Home from "../components/Home/Home";
+import SignIn from "../components/SignIn/SignIn";
+import Register from "../components/Register/Register";
+import Banner from "../components/Banner/Banner";
+import AllArtifacts from "../pages/AllArtifacts";
+import AddArtifacts from "../pages/AddArtifacts";
+import PrivatePage from "../pages/PrivatePage";
+import UpdateArtifacts from "../pages/UpdateArtifacts";
+import Errorpage from "../pages/Errorpage";
+import AritfactsDetails from "../pages/AritfactsDetails";
+import AllUpdater from "../pages/AllUpdater";
+import MyArtifacts from "../pages/MyArtifacts";
+import LikedAritifacts from "../pages/LikedAritifacts";
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Root></Root>,
+        children: [
+            {
+                index: true,
+                element: <Home></Home>
+            },
+            {
+                path: 'banner',
+                element: <Banner></Banner>
+            },
+            {
+                path: '/signin',
+                element: <SignIn></SignIn>
+            },
+            {
+                path: 'register',
+                element: <Register></Register>
+            },
+            {
+                path: '/add-artifacts',
+                element: <PrivatePage><AddArtifacts></AddArtifacts></PrivatePage>
+            },
+            {
+                path: '/shareartifacts/:email',
+                element: <MyArtifacts></MyArtifacts>,
+                loader: ({ params }) => fetch(`https://histoic-artifacts-server.vercel.app/api/shareartifacts/email/${params.email}`),
+            },
+            {
+                path: '/updateartifacts/:id',
+                element: <UpdateArtifacts></UpdateArtifacts>,
+                loader: ({ params }) => fetch(`https://histoic-artifacts-server.vercel.app/api/shareartifacts/${params.id}`),
+            },
+            {
+                path: '/myartifacts/:id',
+                element: <UpdateArtifacts></UpdateArtifacts>,
+                loader: ({ params }) => fetch(`https://histoic-artifacts-server.vercel.app/api/shareartifacts/${params.id}`),
+            },
+            {
+                path: '/all-artifacts',
+                element: <AllArtifacts></AllArtifacts>,
+                loader: () => fetch('https://histoic-artifacts-server.vercel.app/api/allartifacts'),
+            },
+            {
+                path: '/liked-artifacts/:email',
+                element: <PrivatePage><LikedAritifacts></LikedAritifacts></PrivatePage>,
+            },
+            {
+                path: '/artifactsdetails/:id',
+                element: <PrivatePage><AritfactsDetails></AritfactsDetails></PrivatePage>,
+                loader: ({ params }) => fetch(`https://histoic-artifacts-server.vercel.app/api/allartifacts/${params.id}`),
+            },
+            {
+                path: '*',
+                element: <Errorpage></Errorpage>
+            }
+        ]
+    }
+])
+
+export default router;
