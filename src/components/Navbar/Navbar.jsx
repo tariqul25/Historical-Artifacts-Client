@@ -13,6 +13,7 @@ const Navbar = () => {
             .then(error => console.log(error))
     }
     return (
+<<<<<<< HEAD
         <div className='bg-white max-w-7xl mx-auto px-4 md:px-10  text-[#ffffff]' >
             <div className="navbar ">
                 <div className="navbar-start">
@@ -23,6 +24,18 @@ const Navbar = () => {
                         <li><NavLink className="text-gray-700 hover:text-amber-600 hover:bg-amber-50" to='/'>Home</NavLink></li>
                         <li><NavLink className="text-gray-700 hover:text-amber-600 hover:bg-amber-50" to='/all-artifacts'>All-Artifacts</NavLink></li>
                         <li><NavLink className="text-gray-700 hover:text-amber-600 hover:bg-amber-50" to='/add-artifacts'>Add-Artifacts</NavLink></li>
+=======
+        <div>
+            <div className="navbar bg-base-100 shadow-sm">
+                <div className="navbar-start">
+                    <h2><span className='font-bold'>Epoch</span>Vault</h2>
+                </div>
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu menu-horizontal px-1">
+                        <li><NavLink to='/'>Home</NavLink></li>
+                        <li><NavLink to='/all-artifacts'>All-Artifacts</NavLink></li>
+                        <li><NavLink to='/add-artifacts'>Add-Artifacts</NavLink></li>
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
                     </ul>
                 </div>
 
@@ -51,7 +64,11 @@ const Navbar = () => {
                                     <li><NavLink to='/add-artifacts'>Add-Artifacts</NavLink></li>
                                 </div>
                                 <li><NavLink to={`/shareartifacts/${user?.email}`}>My-Artifacts</NavLink></li>
+<<<<<<< HEAD
                                 <li><NavLink to={`/liked-artifacts/${user?.email}`}>Liked Artifacts</NavLink></li>
+=======
+                                <li><NavLink to='/liked-artifacts'>Liked Artifacts</NavLink></li>
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
                                 <li><p onClick={handleSignOut}>Logout</p></li>
                             </ul>
                         </div> 

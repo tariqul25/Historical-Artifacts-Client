@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 // import { useRouteError } from 'react-router';
 
 
@@ -17,3 +18,15 @@ const ErrorPage = () => {
 };
 
 export default ErrorPage;
+=======
+
+const Errorpage = () => {
+    return (
+        <div>
+            <p>error</p>
+        </div>
+    );
+};
+
+export default Errorpage;
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b

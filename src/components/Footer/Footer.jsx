@@ -3,8 +3,12 @@ import { Link } from 'react-router';
 
 const Footer = () => {
     return (
+<<<<<<< HEAD
         <div className="max-w-7xl mx-auto bg-[#2c2c2c]  px-4 md:px-10" >
         <footer className=" text-[#ffffff] ">
+=======
+        <footer className="bg-green-300 text-black dark:bg-green-300">
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
             {/* Main Footer */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -88,7 +92,11 @@ const Footer = () => {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
+<<<<<<< HEAD
                                 className="w-full px-4 py-2 rounded-md  border border-gray-300 focus:outline-none focus:border-purple-500"
+=======
+                                className="w-full px-4 py-2 rounded-md bg-gray-100 border border-gray-300 focus:outline-none focus:border-purple-500"
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
                             />
                             <button
                                 type="submit"
@@ -102,7 +110,11 @@ const Footer = () => {
             </div>
 
             {/* Bottom Bar */}
+<<<<<<< HEAD
             <div className="border-t border-[#ffffff]">
+=======
+            <div className="border-t border-gray-800">
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                     <div className="flex flex-col md:flex-row justify-between items-center">
                         <p className="text-sm">
@@ -123,7 +135,10 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
+<<<<<<< HEAD
         </div>
+=======
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
     );
 };
 

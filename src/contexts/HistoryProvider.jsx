@@ -28,12 +28,19 @@ const HistoryProvider = ({ children }) => {
 
 
     useEffect(() => {
+<<<<<<< HEAD
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log('user in the auth state change', currentUser)
             setLoading(false);
         });
 
+=======
+        const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+            setLoading(false)
+        });
+>>>>>>> d7eada240e4ae6c88b3bec50bacef9b8c3ea074b
         return () => {
             unSubscribe();
         }
