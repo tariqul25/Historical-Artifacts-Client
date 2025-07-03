@@ -1,16 +1,33 @@
-import React, { use, useState } from 'react';
-import { Link, useLoaderData } from 'react-router';
+import React, {  useState } from 'react';
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
-import { HistoryContext } from '../contexts/HistoryContext';
 import Loading from './Loading';
-
 import { Plus, Eye, Edit, Trash2, Heart } from 'lucide-react';
-// import useAxiosSecure from '../hooks/useAxiosSecure';
+import useAxiosSecure from '../hooks/useAxiosSecure';
+
+import { useEffect } from 'react';
+import { useParams } from 'react-router';
+;
 
 const MyArtifacts = () => {
-    const myArtifacts = useLoaderData();
-    const { loading } = use(HistoryContext);
-    const [allArtifacts, setAllArtifacts] = useState(myArtifacts);
+    const { email } = useParams();
+    const axiosSecure = useAxiosSecure();
+    const [myArtifacts, setMyArtifacts] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        if (email) {
+            axiosSecure.get(`/api/shareartifacts/email/${email}`)
+                .then(res => {
+                    setMyArtifacts(res.data);
+                    setLoading(false);
+                })
+                .catch(err => {
+                    console.error(err);
+                    setLoading(false);
+                });
+        }
+    }, [email, axiosSecure]);
 
     if (loading) {
         return <Loading />;
@@ -27,12 +44,9 @@ const MyArtifacts = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/${id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data.deletedCount) {
+                axiosSecure.delete(`/api/shareartifacts/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 position: "top",
                                 icon: "success",
@@ -41,16 +55,23 @@ const MyArtifacts = () => {
                                 showConfirmButton: false,
                                 timer: 1500,
                             });
-                            const remaining = allArtifacts.filter(artifact => artifact._id !== id);
-                            setAllArtifacts(remaining);
+                            const remaining = myArtifacts.filter(artifact => artifact._id !== id);
+                            setMyArtifacts(remaining);
+                        } else {
+                            Swal.fire("Failed!", "Could not delete artifact.", "error");
                         }
+                    })
+                    .catch(err => {
+                        Swal.fire("Error!", "Something went wrong.", "error");
+                        console.error(err);
                     });
             }
         });
     };
 
+
     return (
-        <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50">
+        <div className=" bg-gradient-to-br from-amber-50 via-white to-orange-50">
             <div className="max-w-7xl mx-auto px-4 py-8">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-800 mb-4">My Artifacts</h1>
@@ -59,7 +80,7 @@ const MyArtifacts = () => {
                     </p>
                 </div>
 
-                {allArtifacts.length === 0 ? (
+                {myArtifacts.length === 0 ? (
                     <div className="text-center py-16">
                         <div className="max-w-md mx-auto">
                             <div className="mb-6">
@@ -72,7 +93,7 @@ const MyArtifacts = () => {
                                 <p className="text-gray-500 mb-6">
                                     You haven&apos;t added any artifacts to the collection yet. Start by adding your first historical artifact!
                                 </p>
-                                <Link to="/add-artifact" className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded">
+                                <Link to='/add-artifacts' className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded">
                                     <Plus className="w-4 h-4 mr-2" />
                                     Add Your First Artifact
                                 </Link>
@@ -83,7 +104,7 @@ const MyArtifacts = () => {
                     <>
                         <div className="flex justify-between items-center mb-6">
                             <p className="text-gray-600">
-                                You have added {allArtifacts.length} artifact{allArtifacts.length !== 1 ? 's' : ''}
+                                You have added {myArtifacts.length} artifact{myArtifacts.length !== 1 ? 's' : ''}
                             </p>
                             <Link to="/add-artifacts" className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded">
                                 <Plus className="w-4 h-4 mr-2" />
@@ -105,7 +126,7 @@ const MyArtifacts = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {allArtifacts.map((artifact) => (
+                                    {myArtifacts.map((artifact) => (
                                         <tr key={artifact._id} className="border-b hover:bg-gray-50">
                                             <td className="px-4 py-3">
                                                 <img
@@ -126,18 +147,18 @@ const MyArtifacts = () => {
                                             <td className="px-4 py-3">
                                                 <div className="flex gap-2">
                                                     <Link to={`/artifactsdetails/${artifact._id}`}>
-                                                        <button className="border border-gray-300 px-3 py-1 rounded text-gray-600 hover:bg-gray-100 flex items-center text-xs">
+                                                        <button className="border border-gray-300 px-3 py-1 rounded cursor-pointer text-gray-600 hover:bg-gray-100 flex items-center text-xs">
                                                             <Eye className="w-4 h-4 mr-1" /> View
                                                         </button>
                                                     </Link>
                                                     <Link to={`/updateartifacts/${artifact._id}`}>
-                                                        <button className="border border-gray-300 px-3 py-1 rounded text-gray-600 hover:bg-gray-100 flex items-center text-xs">
+                                                        <button className="border border-gray-300 px-3 py-1 cursor-pointer rounded text-gray-600 hover:bg-gray-100 flex items-center text-xs">
                                                             <Edit className="w-4 h-4 mr-1" /> Update
                                                         </button>
                                                     </Link>
                                                     <button
                                                         onClick={() => handleDelete(artifact._id)}
-                                                        className="border border-gray-300 px-3 py-1 rounded text-red-600 hover:bg-red-50 flex items-center text-xs"
+                                                        className="border border-gray-300 px-3 py-1 rounded cursor-pointer text-red-600 hover:bg-red-50 flex items-center text-xs"
                                                     >
                                                         <Trash2 className="w-4 h-4" />
                                                     </button>

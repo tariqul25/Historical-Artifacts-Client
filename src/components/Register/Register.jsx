@@ -5,6 +5,7 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 import Swal from 'sweetalert2';
 
+
 const Register = () => {
   const { createUser } = use(HistoryContext);
   const navigate = useNavigate();
@@ -64,11 +65,11 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
+    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 flex items-center justify-center px-4 py-12 min-h-screen">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 sm:p-8">
         <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-800">Create Account</h2>
-          <p className="text-gray-600 mt-2">Join the HistoriTrack community</p>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Create Account</h2>
+          <p className="text-gray-600 mt-2 text-sm sm:text-base">Join the EpochVault community</p>
         </div>
         <form onSubmit={handleEmailRegister} className="space-y-4">
           <div>
@@ -121,7 +122,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="w-full bg-amber-600 text-white py-2 rounded hover:bg-amber-700 transition-colors"
+            className="w-full bg-amber-600 text-white py-2 rounded hover:bg-amber-700 cursor-pointer transition-colors"
           >
             Register
           </button>
@@ -135,7 +136,7 @@ const Register = () => {
         <button
           type="button"
           onClick={handleGoogleRegister}
-          className="w-full border border-gray-300 py-2 rounded hover:bg-gray-50 flex items-center justify-center"
+          className="w-full border border-gray-300 py-2 rounded hover:bg-gray-50 cursor-pointer flex items-center justify-center"
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />

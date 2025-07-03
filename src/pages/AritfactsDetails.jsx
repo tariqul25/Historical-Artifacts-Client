@@ -1,66 +1,80 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link, useLoaderData } from 'react-router';
+import React, { useEffect, useState, useContext } from 'react';
+import { Link, useParams } from 'react-router';
 import { HistoryContext } from '../contexts/HistoryContext';
-import axios from 'axios';
 import { ArrowLeft, Eye, Heart, Calendar, MapPin, User } from 'lucide-react';
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 const ArtifactDetails = () => {
-  const artifact = useLoaderData();
   const { user } = useContext(HistoryContext);
   const userEmail = user?.email;
+  const axiosSecure = useAxiosSecure();
 
-  const [likeCount, setLikeCount] = useState(artifact.liked || 0);
+  const { id } = useParams();  // get artifact id from route params
+
+  const [artifact, setArtifact] = useState(null);
+  const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const checkLiked = async () => {
-    if (!userEmail) return;
-    try {
-      const res = await axios.get(
-        `https://historical-artifacts.vercel.app0/api/likedartifacts/check/${artifact._id}/${userEmail}`
-      );
-      setIsLiked(res.data.liked);
-    } catch (err) {
-      console.error('Error checking liked status:', err);
-      setIsLiked(false);
-    }
-  };
-  checkLiked();
-}, [artifact._id, userEmail]);
+  useEffect(() => {
+    if (!id) return;
 
+    const fetchArtifact = async () => {
+      setLoading(true);
+      try {
+        const { data } = await axiosSecure.get(`/api/allartifacts/${id}`);
+        setArtifact(data);
+        setLikeCount(data.liked || 0);
+      } catch (err) {
+        console.error('Failed to load artifact:', err);
+      }
+      setLoading(false);
+    };
 
+    fetchArtifact();
+  }, [id, axiosSecure]);
+
+  useEffect(() => {
+    const checkLiked = async () => {
+      if (!userEmail || !artifact?._id) return;
+      try {
+        const res = await axiosSecure.get(`/api/likedartifacts/check/${artifact._id}/${userEmail}`);
+        setIsLiked(res.data.liked);
+      } catch (err) {
+        console.error('Error checking liked status:', err);
+        setIsLiked(false);
+      }
+    };
+    checkLiked();
+  }, [artifact?._id, userEmail, axiosSecure]);
 
   const handleLikeBtn = async () => {
     if (!userEmail) {
       alert('Please login to like this artifact');
       return;
     }
-
     try {
-      const res = await axios.patch(
-        `https://historical-artifacts.vercel.app0/api/like/${artifact._id}`,
-        { userEmail }
-      );
-
+      const res = await axiosSecure.patch(`/api/like/${artifact._id}`, { userEmail });
       if (res.data.modifiedCount > 0) {
         const nowLiked = res.data.liked;
         setIsLiked(nowLiked);
-        setLikeCount(prev => nowLiked ? prev + 1 : Math.max(prev - 1, 0));
-      } else {
-        console.warn('No modification done in like toggle');
+        setLikeCount(prev => (nowLiked ? prev + 1 : Math.max(prev - 1, 0)));
       }
     } catch (error) {
       console.error('Error toggling like:', error);
     }
   };
 
+  if (loading) return <div>Loading artifact...</div>;
+  if (!artifact) return <div>Artifact not found</div>;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 min-h-screen">
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Back Button */}
         <div className="mb-6">
           <Link to="/all-artifacts">
-            <button className="inline-flex items-center border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50">
+            <button className="inline-flex items-center border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50 transition">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to All Artifacts
             </button>
@@ -74,18 +88,18 @@ useEffect(() => {
               <img
                 src={artifact.image}
                 alt={artifact.artifactName}
-                className="w-full h-96 lg:h-[500px] object-cover"
+                className="w-full h-64 sm:h-80 lg:h-[500px] object-cover"
               />
             </div>
 
-            <div className="border rounded-lg shadow-sm p-4 flex items-center justify-between">
+            <div className="border rounded-lg shadow-sm p-4 flex justify-between">
               <div className="flex items-center space-x-2">
-                <Eye className="w-4 h-4 text-gray-500" />
+                <Eye className="w-5 h-5 text-gray-500" />
                 <span className="text-sm text-gray-600">Views: 1,247</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Heart
-                  className={`w-4 h-4 ${isLiked ? 'text-red-500 fill-current' : 'text-gray-500'}`}
+                  className={`w-5 h-5 ${isLiked ? 'text-red-500 fill-current' : 'text-gray-500'}`}
                 />
                 <span className="text-sm text-gray-600">{likeCount} likes</span>
               </div>
@@ -95,9 +109,9 @@ useEffect(() => {
           {/* Details Section */}
           <div className="space-y-6">
             <div className="border rounded-lg shadow-sm p-6">
-              <div className="flex justify-between items-start">
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex-1">
-                  <h2 className="text-2xl lg:text-3xl mb-2 font-bold">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-2">
                     {artifact.artifactName}
                   </h2>
                   <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded">
@@ -106,12 +120,13 @@ useEffect(() => {
                 </div>
                 <button
                   onClick={handleLikeBtn}
-                  className={`ml-4 px-4 py-2 rounded-md cursor-pointer text-sm font-semibold flex items-center ${isLiked
+                  className={`px-4 py-2 rounded-md cursor-pointer text-sm font-semibold flex items-center transition-colors ${
+                    isLiked
                       ? 'bg-red-500 text-white hover:bg-red-600'
                       : 'border border-red-300 text-red-600 hover:bg-red-50'
-                    }`}
+                  }`}
                 >
-                  <Heart className={`w-5 h-5 mr-2  ${isLiked ? 'fill-current ' : ''}`} />
+                  <Heart className={`w-5 h-5 mr-2 ${isLiked ? 'fill-current' : ''}`} />
                   {isLiked ? 'Liked' : 'Like'}
                 </button>
               </div>
@@ -122,14 +137,12 @@ useEffect(() => {
 
             <div className="border rounded-lg shadow-sm p-6">
               <h3 className="text-xl font-bold mb-2">Historical Context</h3>
-              <p className="text-gray-700 leading-relaxed">
-                {artifact.historicalContext}
-              </p>
+              <p className="text-gray-700 leading-relaxed">{artifact.historicalContext}</p>
             </div>
 
             <div className="border rounded-lg shadow-sm p-6 space-y-4">
               <h3 className="text-xl font-bold mb-4">Artifact Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3">
                   <Calendar className="w-5 h-5 text-amber-600" />
                   <div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import { FaEye, FaHeart } from 'react-icons/fa';
 
+
 const AllArtifacts = () => {
   const allArtifactsData = useLoaderData();
 
@@ -9,12 +10,10 @@ const AllArtifacts = () => {
   const [filterType, setFilterType] = useState('all');
   const [filteredArtifacts, setFilteredArtifacts] = useState(allArtifactsData);
 
-  // Extract unique types from artifacts for filter dropdown
   const artifactTypes = Array.from(
     new Set(allArtifactsData.map((artifact) => artifact.artifactType))
   ).filter(Boolean);
 
-  // Filter logic: run whenever searchText or filterType changes
   useEffect(() => {
     const filtered = allArtifactsData.filter((artifact) => {
       const matchesSearch = artifact.artifactName
@@ -30,18 +29,19 @@ const AllArtifacts = () => {
 
   return (
     <div className="flex flex-col items-center py-6 px-4">
-          <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            All Historical Artifacts
-          </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Explore our complete collection of historical treasures from around the world
-          </p>
-        </div>
+      <div className="text-center mb-8 max-w-4xl">
+        <h1 className="text-4xl font-bold text-gray-800 mb-4">
+          All Historical Artifacts
+        </h1>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Explore our complete collection of historical treasures from around the world
+        </p>
+      </div>
+
       {/* Search + Filter */}
-      <div className="mb-6 flex flex-col md:flex-row gap-4 items-center justify-center w-full max-w-xl mx-auto">
+      <div className="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-xl mx-auto">
         {/* Search Input */}
-        <div className="w-full md:w-72 relative">
+        <div className="w-full sm:w-72 relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none"
@@ -66,7 +66,7 @@ const AllArtifacts = () => {
         </div>
 
         {/* Filter Dropdown */}
-        <div className="w-full md:w-48 relative">
+        <div className="w-full sm:w-48 relative">
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
@@ -79,7 +79,6 @@ const AllArtifacts = () => {
               </option>
             ))}
           </select>
-          {/* Optional filter icon */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 pointer-events-none"
@@ -97,14 +96,12 @@ const AllArtifacts = () => {
         </div>
       </div>
 
-      
-
       {/* Artifact Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl px-4 sm:px-6">
         {filteredArtifacts.length > 0 ? (
           filteredArtifacts.map((artifact) => (
             <div
-              key={artifact.id}
+              key={artifact._id}
               className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border rounded-lg"
             >
               {/* Image */}
@@ -137,7 +134,7 @@ const AllArtifacts = () => {
               {/* Footer */}
               <div className="p-4 pt-0">
                 <Link to={`/artifactsdetails/${artifact._id}`} className="w-full block">
-                  <button className="w-full flex items-center justify-center gap-2 border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50 hover:border-amber-300">
+                  <button className="w-full flex items-center justify-center cursor-pointer gap-2 border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50 hover:border-amber-300 transition">
                     <FaEye className="w-4 h-4" />
                     See More
                   </button>

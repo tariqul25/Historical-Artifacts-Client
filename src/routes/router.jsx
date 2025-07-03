@@ -11,9 +11,9 @@ import PrivatePage from "../pages/PrivatePage";
 import UpdateArtifacts from "../pages/UpdateArtifacts";
 import Errorpage from "../pages/Errorpage";
 import AritfactsDetails from "../pages/AritfactsDetails";
-import AllUpdater from "../pages/AllUpdater";
 import MyArtifacts from "../pages/MyArtifacts";
 import LikedAritifacts from "../pages/LikedAritifacts";
+import CivilizationDetail from '../pages/CivilizationDetails';
 
 const router = createBrowserRouter([
     {
@@ -42,33 +42,32 @@ const router = createBrowserRouter([
             },
             {
                 path: '/shareartifacts/:email',
-                element: <MyArtifacts></MyArtifacts>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/email/${params.email}`),
+                element: <PrivatePage><MyArtifacts></MyArtifacts></PrivatePage>,
             },
             {
                 path: '/updateartifacts/:id',
-                element: <UpdateArtifacts></UpdateArtifacts>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/${params.id}`),
+                element: <PrivatePage> <UpdateArtifacts></UpdateArtifacts></PrivatePage>,
             },
             {
                 path: '/myartifacts/:id',
-                element: <UpdateArtifacts></UpdateArtifacts>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/${params.id}`),
+                element: <PrivatePage><UpdateArtifacts></UpdateArtifacts></PrivatePage>,
             },
             {
                 path: '/all-artifacts',
                 element: <AllArtifacts></AllArtifacts>,
-                loader: () => fetch('https://historical-artifacts.vercel.app0/api/allartifacts'),
+                loader: () => fetch('https://historical-artifacts.vercel.app/api/allartifacts'),
+            },
+            {
+                path: '/civilization/:civilization',
+                element: <CivilizationDetail></CivilizationDetail>,
             },
             {
                 path: '/liked-artifacts/:email',
                 element: <PrivatePage><LikedAritifacts></LikedAritifacts></PrivatePage>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/likedartifacts/user/${params.email}`),
             },
             {
                 path: '/artifactsdetails/:id',
                 element: <PrivatePage><AritfactsDetails></AritfactsDetails></PrivatePage>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/allartifacts/${params.id}`),
             },
             {
                 path: '*',

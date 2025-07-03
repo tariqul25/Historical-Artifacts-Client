@@ -6,12 +6,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+
 const slides = [
   {
     id: 1,
     title: "Discover Ancient Treasures",
     subtitle: "Explore historical artifacts from around the world",
-    image: "https://i.ibb.co/GvSqLq3C/artifac2.jpg", // example from imgbb
+    image: "https://i.ibb.co/GvSqLq3C/artifac2.jpg",
     cta: "Start Exploring",
     ctaLink: "/all-artifacts",
   },
@@ -34,7 +35,7 @@ const slides = [
 ];
 
 const HeroSlider = () => (
-  <section className="relative h-[70vh] w-full">
+  <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] w-full">
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation
@@ -53,11 +54,11 @@ const HeroSlider = () => (
               className="absolute inset-0 w-full h-full object-cover opacity-95"
             />
             {/* Overlay */}
-            <div className="absolute inset-0  bg-opacity-50" />
+            <div className="absolute inset-0 bg-transparent bg-opacity-30" />
             {/* Text content */}
-            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">{title}</h1>
-              <p className="text-lg md:text-xl mb-6 max-w-2xl">{subtitle}</p>
+            <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 md:px-8 lg:px-16">
+              <h1 className="text-3xl md:text-5xl font-bold mb-4">{title}</h1>
+              <p className="text-base md:text-lg lg:text-xl mb-6 max-w-2xl">{subtitle}</p>
               <Link
                 to={ctaLink}
                 className="bg-gradient-to-r from-amber-600 to-orange-600 px-6 py-3 rounded-md font-semibold hover:from-amber-700 hover:to-orange-700 transition"
