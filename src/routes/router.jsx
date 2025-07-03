@@ -43,31 +43,32 @@ const router = createBrowserRouter([
             {
                 path: '/shareartifacts/:email',
                 element: <MyArtifacts></MyArtifacts>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app/api/shareartifacts/email/${params.email}`),
+                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/email/${params.email}`),
             },
             {
                 path: '/updateartifacts/:id',
                 element: <UpdateArtifacts></UpdateArtifacts>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app/api/shareartifacts/${params.id}`),
+                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/${params.id}`),
             },
             {
                 path: '/myartifacts/:id',
                 element: <UpdateArtifacts></UpdateArtifacts>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app/api/shareartifacts/${params.id}`),
+                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/${params.id}`),
             },
             {
                 path: '/all-artifacts',
                 element: <AllArtifacts></AllArtifacts>,
-                loader: () => fetch('https://historical-artifacts.vercel.app/api/allartifacts'),
+                loader: () => fetch('https://historical-artifacts.vercel.app0/api/allartifacts'),
             },
             {
                 path: '/liked-artifacts/:email',
                 element: <PrivatePage><LikedAritifacts></LikedAritifacts></PrivatePage>,
+                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/likedartifacts/user/${params.email}`),
             },
             {
                 path: '/artifactsdetails/:id',
                 element: <PrivatePage><AritfactsDetails></AritfactsDetails></PrivatePage>,
-                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app/api/allartifacts/${params.id}`),
+                loader: ({ params }) => fetch(`https://historical-artifacts.vercel.app0/api/allartifacts/${params.id}`),
             },
             {
                 path: '*',

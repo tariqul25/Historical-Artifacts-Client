@@ -8,7 +8,6 @@ const axiosInstance = axios.create({
 const useAxiosSecure = () => {
   const { user, logOut } = useAuth()
   const token = user?.accessToken
-  console.log(token);
   //   intercept requests
   axiosInstance.interceptors.request.use(config => {
     config.headers.Authorization = `Bearer ${token}`

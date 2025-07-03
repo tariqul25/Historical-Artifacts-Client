@@ -46,7 +46,7 @@ const ExploreCivilization = () => {
   <div className="p-6 flex flex-col flex-grow">
     <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{civ.name}</h3>
     <p className="text-gray-600 dark:text-gray-300 mt-2 flex-grow">{civ.description}</p>
-    <button className="mt-auto inline-block bg-green-600 text-white mx-4 py-2 rounded hover:bg-green-700 transition">
+    <button className="mt-auto inline-block bg-amber-600 text-white mx-4 py-2 rounded hover:bg-amber-700 transition">
       Explore
     </button>
   </div>

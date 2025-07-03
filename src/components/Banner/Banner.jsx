@@ -13,7 +13,7 @@ const slides = [
     subtitle: "Explore historical artifacts from around the world",
     image: "https://i.ibb.co/GvSqLq3C/artifac2.jpg", // example from imgbb
     cta: "Start Exploring",
-    ctaLink: "/artifacts",
+    ctaLink: "/all-artifacts",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const slides = [
     subtitle: "Add your own historical artifacts to our collection",
     image: "https://i.ibb.co/VWf9XHK7/artifact6.webp",
     cta: "Add Artifact",
-    ctaLink: "/add-artifact",
+    ctaLink: "/add-artifacts",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const slides = [
     subtitle: "Like, save, and explore artifacts that fascinate you",
     image: "https://i.ibb.co/mCNPwfv9/artifact7.webp",
     cta: "Join Community",
-    ctaLink: "/community",
+    ctaLink: "#civilization",
   },
 ];
 

@@ -10,7 +10,6 @@ const HistoryProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const createUser = (email, password) => {
-        console.log(email, password);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 

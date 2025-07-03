@@ -9,11 +9,8 @@ import { Plus, Eye, Edit, Trash2, Heart } from 'lucide-react';
 
 const MyArtifacts = () => {
     const myArtifacts = useLoaderData();
-    console.log(myArtifacts);
     const { loading } = use(HistoryContext);
     const [allArtifacts, setAllArtifacts] = useState(myArtifacts);
-    console.log(allArtifacts);
-    // const axiosInstance=useAxiosSecure()
 
     if (loading) {
         return <Loading />;
@@ -30,7 +27,7 @@ const MyArtifacts = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://historical-artifacts.vercel.app/api/shareartifacts/${id}`, {
+                fetch(`https://historical-artifacts.vercel.app0/api/shareartifacts/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

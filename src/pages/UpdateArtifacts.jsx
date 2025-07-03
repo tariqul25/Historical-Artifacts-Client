@@ -13,7 +13,6 @@ const artifactTypes = [
 const UpdateArtifact = () => {
   const { user, loading } = useContext(HistoryContext);
   const artifact = useLoaderData();
-  console.log(artifact);
   const navigate = useNavigate();
 
   if (loading) {
@@ -29,7 +28,7 @@ const UpdateArtifact = () => {
     updatedData.userName = user?.displayName || "";
 
     axios.put(
-      `https://historical-artifacts.vercel.app/api/updateartifacts/${artifact._id}`,
+      `https://historical-artifacts.vercel.app0/api/updateartifacts/${artifact._id}`,
       updatedData
     )
       .then(() => {

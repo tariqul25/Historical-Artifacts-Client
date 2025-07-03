@@ -11,8 +11,8 @@ const Home = () => {
             <Banner></Banner>
             <MostLikedArtifacts />
             <About></About>
-            <Faq></Faq>
             <ExploreCivilization></ExploreCivilization>
+            <Faq></Faq>
         </div>
     );
 };

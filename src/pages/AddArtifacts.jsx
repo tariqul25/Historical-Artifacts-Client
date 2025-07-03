@@ -43,7 +43,7 @@ const AddArtifact = () => {
 
     try {
       await axios.post(
-        "https://historical-artifacts.vercel.app/api/shareartifacts",
+        "https://historical-artifacts.vercel.app0/api/shareartifacts",
         data
       );
       Swal.fire({

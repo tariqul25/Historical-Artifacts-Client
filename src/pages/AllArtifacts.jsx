@@ -4,7 +4,6 @@ import { FaEye, FaHeart } from 'react-icons/fa';
 
 const AllArtifacts = () => {
   const allArtifactsData = useLoaderData();
-  console.log(allArtifactsData);
 
   const [searchText, setSearchText] = useState('');
   const [filterType, setFilterType] = useState('all');

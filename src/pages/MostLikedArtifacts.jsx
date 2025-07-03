@@ -10,7 +10,7 @@ const MostLikedArtifacts = () => {
 
   useEffect(() => {
     axios
-      .get('https://historical-artifacts.vercel.app/api/mostliked')
+      .get('https://historical-artifacts.vercel.app0/api/mostliked')
       .then((response) => {
         setAllArtifacts(response.data);
         setIsLoading(false);
