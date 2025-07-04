@@ -20,7 +20,7 @@ const slides = [
     id: 2,
     title: "Share Your Discoveries",
     subtitle: "Add your own historical artifacts to our collection",
-    image: "https://i.ibb.co/VWf9XHK7/artifact6.webp",
+    image: "https://i.ibb.co/DDhZtCMG/historical-artifacts.jpg",
     cta: "Add Artifact",
     ctaLink: "/add-artifacts",
   },

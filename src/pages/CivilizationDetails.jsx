@@ -31,7 +31,7 @@ Their innovations in irrigation, astronomy, and mathematics shaped future civili
   },
   china: {
     name: 'Ancient China',
-    image: 'https://i.ibb.co/Z6K1hzxY/china.jpg',
+    image: 'https://i.ibb.co/4gst4nxb/xiaoyu-li-Dhgio-EYZr-Vg-unsplash.jpg',
     description: `Ancient China was characterized by powerful dynasties like the Shang and Zhou, which established complex governance and culture.  
 It introduced groundbreaking inventions such as paper, gunpowder, and the compass.  
 Confucianism and Taoism deeply influenced Chinese philosophy and society.  

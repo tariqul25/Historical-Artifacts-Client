@@ -23,7 +23,7 @@ const civilizations = [
   {
     key: 'china',
     name: 'Ancient China',
-    image: 'https://i.ibb.co/Z6K1hzxY/china.jpg',
+    image: 'https://i.ibb.co/4gst4nxb/xiaoyu-li-Dhgio-EYZr-Vg-unsplash.jpg',
     description: 'Uncover the wonders of dynasties, inventions, and culture.',
   },
 ];
