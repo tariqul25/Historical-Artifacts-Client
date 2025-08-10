@@ -8,6 +8,10 @@ import { HistoryContext } from './HistoryContext';
 const HistoryProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+      const [likeCount, setLikeCount] = useState(0);
+      const [isLiked, setIsLiked] = useState(false);
+      const [likedItems, setLikedItems] = useState({});
+
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
@@ -47,7 +51,13 @@ const HistoryProvider = ({ children }) => {
         user,
         loading,
         googleSignIn,
-        signout
+        signout,
+        setIsLiked,
+        isLiked,
+        setLikeCount,
+        likeCount,
+        setLikedItems,
+        likedItems
     }
     return (
         <div>

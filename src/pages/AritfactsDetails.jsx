@@ -6,15 +6,13 @@ import useAxiosSecure from '../hooks/useAxiosSecure';
 import Loading from './Loading';
 
 const ArtifactDetails = () => {
-  const { user } = useContext(HistoryContext);
+  const { user,setIsLiked,isLiked,setLikeCount,likeCount} = useContext(HistoryContext);
   const userEmail = user?.email;
   const axiosSecure = useAxiosSecure();
 
   const { id } = useParams(); 
 
   const [artifact, setArtifact] = useState(null);
-  const [likeCount, setLikeCount] = useState(0);
-  const [isLiked, setIsLiked] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { Calendar, MapPin, Heart, Eye, ArrowRight, Sparkles } from 'lucide-react';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import { HistoryContext } from '../contexts/HistoryContext';
 
 
 const MostLikedArtifacts = () => {
@@ -79,7 +80,7 @@ const MostLikedArtifacts = () => {
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-pink-600">
-                    <Heart className="w-4 h-4" />
+                    <span ><Heart className="w-4 h-4 fill-current" /></span>
                     <span className="font-medium">{artifact.liked}</span>
                   </div>
 
