@@ -1,12 +1,15 @@
 import axios from 'axios'
 import useAuth from './useAuth'
+import { use } from 'react'
+import { HistoryContext } from '../contexts/HistoryContext'
 
 const axiosInstance = axios.create({
-  baseURL: 'https://historical-artifacts.vercel.app'
+  baseURL: 'https://artifact-atlas-server.vercel.app'
 })
 
 const useAxiosSecure = () => {
-  const { user, logOut } = useAuth()
+  const { user } = useAuth()
+  const {signout}=use(HistoryContext)
   //   intercept requests
   axiosInstance.interceptors.request.use( async config => {
     if (user) {
@@ -21,7 +24,7 @@ const useAxiosSecure = () => {
     res => res,
     err => {
       if (err.response?.status === 401 || err.response?.status === 403) {
-        logOut()
+        signout()
           .then(() => {
             console.log(
               `Logged out because of an error with ${err.response?.status} code.`

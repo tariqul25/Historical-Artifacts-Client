@@ -15,6 +15,7 @@ import MyArtifacts from "../pages/MyArtifacts";
 import LikedAritifacts from "../pages/LikedAritifacts";
 import CivilizationDetail from '../pages/CivilizationDetails';
 
+
 const router = createBrowserRouter([
     {
         path: '/',
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
             {
                 path: '/all-artifacts',
                 element: <AllArtifacts></AllArtifacts>,
-                loader: () => fetch('https://historical-artifacts.vercel.app/api/allartifacts'),
+                loader: () => fetch('https://artifact-atlas-server.vercel.app/api/allartifacts'),
             },
             {
                 path: '/civilization/:civilization',

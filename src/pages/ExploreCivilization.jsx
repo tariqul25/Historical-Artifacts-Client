@@ -5,19 +5,19 @@ const civilizations = [
   {
     key: 'egypt',
     name: 'Ancient Egypt',
-    image: 'https://i.ibb.co/BWzkHs3/egypt.webp',
+    image: 'https://i.ibb.co.com/Cs793Gb3/pexels-davidmceachan-71241.jpg',
     description: 'Explore artifacts from the land of pyramids and pharaohs.',
   },
   {
     key: 'greece',
     name: 'Ancient Greece',
-    image: 'https://i.ibb.co/ccmvSZqd/greek.jpg',
+    image: 'https://i.ibb.co.com/4wj7ySQh/pexels-pixabay-164336.jpg',
     description: 'Discover inventions, philosophy, and art of ancient Greece.',
   },
   {
     key: 'mesopotamia',
     name: 'Mesopotamia',
-    image: 'https://i.ibb.co/mCX5RpB3/meso.jpg',
+    image: 'https://i.ibb.co.com/d0PcDWHG/pexels-aquintanar-4448698.jpg',
     description: 'Step into the cradle of civilization and early writing.',
   },
   {
@@ -30,7 +30,7 @@ const civilizations = [
 
 const ExploreCivilization = () => {
   return (
-    <section className="py-12 px-4 bg-gray-50">
+    <section id='explorecivilization' className="py-12 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-gray-800 mb-6">🌍 Explore by Civilization</h2>
         <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
@@ -48,7 +48,7 @@ const ExploreCivilization = () => {
                 <h3 className="text-xl font-semibold text-gray-800">{civ.name}</h3>
                 <p className="text-gray-600 mt-2 flex-grow">{civ.description}</p>
                 <Link to={`/civilization/${civ.key}`}>
-                  <button className="mt-4 bg-amber-600 text-white py-2 px-3 rounded hover:bg-amber-700">
+                  <button className="mt-4 bg-amber-600 text-white py-2 px-3 cursor-pointer rounded hover:bg-amber-700">
                     Explore
                   </button>
                 </Link>

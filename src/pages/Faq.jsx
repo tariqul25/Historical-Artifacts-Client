@@ -2,8 +2,8 @@ import React from 'react';
 
 const Faq = () => {
   return (
-    <div className="pb-6 my-8 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl text-center mb-6">Frequently Asked Questions</h1>
+    <div className="pb-6 py-8 max-w-4xl mx-auto  px-4 sm:px-6 lg:px-8">
+      <h1 className="text-4xl  text-black dark:text-black text-center mb-6">Frequently Asked Questions</h1>
 
       {[
         {
@@ -32,7 +32,7 @@ const Faq = () => {
             'In some countries, private ownership of artifacts is legal, but often restricted. Many nations have laws protecting cultural heritage and banning export of significant artifacts.',
         },
       ].map((faq, i) => (
-        <div key={i} className="collapse collapse-arrow bg-gray-50 border border-base-300 rounded mb-4">
+        <div key={i} className="collapse collapse-arrow text-black dark:text-black border border-base-300 rounded mb-4">
           <input type="radio" name="faq-accordion" id={`faq-${i}`} className="peer" />
           <label
             htmlFor={`faq-${i}`}

@@ -49,7 +49,7 @@ const LikedArtifacts = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 min-h-screen">
+    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 min-h-screen mt-12">
       <div className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <div className="text-center mb-8 px-2">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">Liked Artifacts</h1>
@@ -71,7 +71,7 @@ const LikedArtifacts = () => {
                 <p className="text-gray-500 mb-6">
                   You haven't liked any artifacts yet. Start exploring our collection and like the artifacts that interest you!
                 </p>
-                <Link to="/artifacts">
+                <Link to="/all-artifacts">
                   <div className="inline-block px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700 transition">
                     🔍 Explore Artifacts
                   </div>
@@ -91,7 +91,7 @@ const LikedArtifacts = () => {
               {likedArtifacts.map((artifact) => (
                 <div
                   key={artifact._id}
-                  className="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
+                  className="bg-white text-black rounded-lg shadow hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
                 >
                   <img
                     src={artifact.image}

@@ -7,28 +7,38 @@ const AllArtifacts = () => {
   const allArtifactsData = useLoaderData();
 
   const [searchText, setSearchText] = useState('');
-  const [filterType, setFilterType] = useState('all');
+  const [sortOption, setSortOption] = useState('name-asc'); // Default sort: Name A-Z
   const [filteredArtifacts, setFilteredArtifacts] = useState(allArtifactsData);
 
-  const artifactTypes = Array.from(
-    new Set(allArtifactsData.map((artifact) => artifact.artifactType))
-  ).filter(Boolean);
+  // Define sorting options
+  const sortOptions = [
+    { value: 'name-asc', label: 'Name (A-Z)' },
+    { value: 'name-desc', label: 'Name (Z-A)' },
+  ];
 
   useEffect(() => {
-    const filtered = allArtifactsData.filter((artifact) => {
-      const matchesSearch = artifact.artifactName
-        .toLowerCase()
-        .includes(searchText.toLowerCase());
+    // Filter by search text
+    let filtered = allArtifactsData.filter((artifact) =>
+      artifact.artifactName.toLowerCase().includes(searchText.toLowerCase())
+    );
 
-      const matchesType = filterType === 'all' || artifact.artifactType === filterType;
-
-      return matchesSearch && matchesType;
+    // Sort based on sortOption
+    filtered.sort((a, b) => {
+      switch (sortOption) {
+        case 'name-asc':
+          return a.artifactName.localeCompare(b.artifactName);
+        case 'name-desc':
+          return b.artifactName.localeCompare(a.artifactName);
+        default:
+          return 0;
+      }
     });
+
     setFilteredArtifacts(filtered);
-  }, [searchText, filterType, allArtifactsData]);
+  }, [searchText, sortOption, allArtifactsData]);
 
   return (
-    <div className="flex flex-col items-center py-6 px-4">
+    <div className="flex flex-col items-center py-6 px-4 mt-12">
       <div className="text-center mb-8 max-w-4xl">
         <h1 className="text-4xl font-bold text-gray-800 mb-4">
           All Historical Artifacts
@@ -38,8 +48,8 @@ const AllArtifacts = () => {
         </p>
       </div>
 
-      {/* Search + Filter */}
-      <div className="mb-6 flex flex-col sm:flex-row gap-4 items-center justify-center w-full max-w-xl mx-auto">
+      {/* Search + Sort */}
+      <div className="mb-6 flex sm:flex-row gap-4 justify-between w-full max-w-xl mx-auto">
         {/* Search Input */}
         <div className="w-full sm:w-72 relative">
           <svg
@@ -65,17 +75,16 @@ const AllArtifacts = () => {
           />
         </div>
 
-        {/* Filter Dropdown */}
+        {/* Sort Dropdown */}
         <div className="w-full sm:w-48 relative">
           <select
-            value={filterType}
-            onChange={(e) => setFilterType(e.target.value)}
+            value={sortOption}
+            onChange={(e) => setSortOption(e.target.value)}
             className="input input-bordered w-full appearance-none pr-8"
           >
-            <option value="all">All Types</option>
-            {artifactTypes.map((type) => (
-              <option key={type} value={type}>
-                {type}
+            {sortOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
               </option>
             ))}
           </select>
@@ -97,12 +106,12 @@ const AllArtifacts = () => {
       </div>
 
       {/* Artifact Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl px-4 sm:px-6">
-        {filteredArtifacts.length > 0 ? (
-          filteredArtifacts.map((artifact) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6  w-full max-w-7xl px-4 sm:px-6">
+        {filteredArtifacts?.length > 0 ? (
+          filteredArtifacts?.map((artifact) => (
             <div
               key={artifact._id}
-              className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border rounded-lg"
+              className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border-2 border-amber-100 rounded-lg"
             >
               {/* Image */}
               <div>
@@ -115,7 +124,7 @@ const AllArtifacts = () => {
 
               {/* Content */}
               <div className="p-4 flex flex-col flex-1">
-                <h2 className="text-xl font-bold mb-2 line-clamp-2">
+                <h2 className="text-xl text-black font-bold mb-2 line-clamp-2">
                   {artifact.artifactName}
                 </h2>
 
@@ -126,7 +135,7 @@ const AllArtifacts = () => {
                   <span className="text-sm text-gray-500">{artifact.createdAt}</span>
                 </div>
 
-                <p className="text-sm text-justify text-gray-700 flex-grow mb-4">
+                <p className=" text-gray-700 max-h-24 overflow-y-scroll no-scrollbar ">
                   {artifact.historicalContext}
                 </p>
               </div>
@@ -134,7 +143,7 @@ const AllArtifacts = () => {
               {/* Footer */}
               <div className="p-4 pt-0">
                 <Link to={`/artifactsdetails/${artifact._id}`} className="w-full block">
-                  <button className="w-full flex items-center justify-center cursor-pointer gap-2 border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50 hover:border-amber-300 transition">
+                  <button className="w-full flex items-center justify-center text-black dark:text-black cursor-pointer gap-2 border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50 hover:border-amber-300 transition">
                     <FaEye className="w-4 h-4" />
                     See More
                   </button>
@@ -145,7 +154,7 @@ const AllArtifacts = () => {
         ) : (
           <div className="text-center py-12 col-span-full">
             <h3 className="text-xl font-semibold text-gray-700 mb-2">No artifacts found</h3>
-            <p className="text-gray-500 mb-6">Try adjusting your search terms or filter criteria</p>
+            <p className="text-gray-500 mb-6">Try adjusting your search terms or sort criteria</p>
           </div>
         )}
       </div>

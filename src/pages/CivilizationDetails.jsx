@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router';
 const civilizationDetailsData = {
   egypt: {
     name: 'Ancient Egypt',
-    image: 'https://i.ibb.co/BWzkHs3/egypt.webp',
+    image: 'https://i.ibb.co.com/Cs793Gb3/pexels-davidmceachan-71241.jpg',
     description: `Ancient Egypt, famous for its pyramids and pharaohs, was one of the world's earliest and longest-lasting civilizations.  
 The Nile River was central to their agriculture, religion, and daily life.  
 Their advanced knowledge of mathematics and engineering enabled the construction of monumental architecture.  
@@ -13,7 +13,7 @@ The Egyptian civilization's religious beliefs deeply influenced their art, buria
   },
   greece: {
     name: 'Ancient Greece',
-    image: 'https://i.ibb.co/ccmvSZqd/greek.jpg',
+    image: 'https://i.ibb.co.com/4wj7ySQh/pexels-pixabay-164336.jpg',
     description: `Ancient Greece is renowned for laying the foundations of Western civilization with its advancements in philosophy, democracy, and the arts.  
 Greek city-states like Athens and Sparta had distinct political systems but shared cultural achievements.  
 The Greeks invented theater, monumental sculpture, and made lasting contributions to science and mathematics.  
@@ -22,7 +22,7 @@ The legacy of Ancient Greece is evident in modern governance, education, and cul
   },
   mesopotamia: {
     name: 'Mesopotamia',
-    image: 'https://i.ibb.co/mCX5RpB3/meso.jpg',
+    image: 'https://i.ibb.co.com/d0PcDWHG/pexels-aquintanar-4448698.jpg',
     description: `Mesopotamia, often called the cradle of civilization, was located between the Tigris and Euphrates rivers.  
 It was home to some of the first cities, including Uruk and Babylon.  
 The invention of cuneiform writing allowed for record keeping and literature.  
@@ -53,7 +53,7 @@ const CivilizationDetail = () => {
           <h2 className="text-2xl font-bold mb-4 text-gray-700">Civilization not found</h2>
           <button
             onClick={() => navigate(-1)}
-            className="px-4 py-2 bg-amber-600 text-white rounded hover:bg-amber-700"
+            className="px-4 py-2 bg-amber-600 cursor-pointer text-white rounded hover:bg-amber-700"
           >
             Go Back
           </button>
@@ -81,7 +81,7 @@ const CivilizationDetail = () => {
 
           <button
             onClick={() => navigate(-1)}
-            className="mt-8 px-6 py-3 bg-amber-600 text-white rounded hover:bg-amber-700 w-max"
+            className="mt-8 px-6 py-3 cursor-pointer bg-amber-600 text-white rounded hover:bg-amber-700 w-max"
           >
             Back to Explore
           </button>

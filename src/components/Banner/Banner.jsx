@@ -29,13 +29,13 @@ const slides = [
     title: "Connect with History",
     subtitle: "Like, save, and explore artifacts that fascinate you",
     image: "https://i.ibb.co/mCNPwfv9/artifact7.webp",
-    cta: "Join Community",
-    ctaLink: "#civilization",
+    cta: "Explore Civilization",
+    ctaLink: "#explorecivilization",
   },
 ];
 
 const HeroSlider = () => (
-  <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] w-full">
+  <section className="relative h-[60vh] md:h-[70vh] lg:h-[80vh] w-full mt-16 ">
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation

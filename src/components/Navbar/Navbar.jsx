@@ -13,12 +13,13 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-amber-600 shadow-lg px-4 md:px-10">
-      <div className="navbar max-w-7xl mx-auto">
+    <div className='bg-amber-600 fixed top-0 left-0 w-full z-50 shadow-md'>
+    <div className=" max-w-7xl mx-auto  px-4 md:px-6">
+      <div className="navbar ">
         <div className="navbar-start">
           <h2>
-            <span className="font-bold">Epoch</span>
-            <span className="font-bold text-white">Vault</span>
+           <span className="font-bold text-black">Artifact</span>
+              <span className="font-bold text-white">Atlas</span>
           </h2>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -59,7 +60,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div className="dropdown dropdown-end">
-              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle cursor-pointer avatar">
                 <div className="w-10 rounded-full">
                   <img alt="User avatar" src={user?.photoURL} />
                 </div>
@@ -101,7 +102,7 @@ const Navbar = () => {
                 <button className="btn cursor-pointer">Login</button>
               </Link>
               <div className="dropdown block md:hidden">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
+                <div tabIndex={0} role="button" className="btn btn-ghost cursor-pointer btn-circle">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -131,6 +132,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };

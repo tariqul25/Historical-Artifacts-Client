@@ -62,7 +62,7 @@ const SignIn = () => {
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10">
         <h2 className="text-2xl sm:text-3xl text-center font-bold mb-2">Welcome Back</h2>
         <p className="text-center text-gray-600 mb-6 text-sm sm:text-base">
-          Sign in to your EpochVault account
+          Sign in to your ArtifactAtlas account
         </p>
 
         <form onSubmit={handlePassLogin} className="space-y-4">
@@ -96,7 +96,7 @@ const SignIn = () => {
 
           <button
             type="submit"
-            className="w-full bg-amber-600 hover:bg-amber-700 text-white cursor-pointer py-2 rounded transition-colors text-sm sm:text-base"
+            className="w-full bg-amber-600  hover:bg-amber-700 text-white cursor-pointer py-2 rounded transition-colors text-sm sm:text-base"
           >
             Sign In
           </button>

@@ -8,18 +8,9 @@ const Footer = () => {
     <div className="bg-amber-600">
       <div className="max-w-7xl mx-auto px-4 md:px-10">
         <footer
-          className="
-            footer
-            footer-horizontal
-            footer-center
-            text-white
-            rounded
-            p-10
-            flex flex-col space-y-6
-            items-center
-          "
-        >
-          <ul className="flex md:flex-row justify-center   space-x-2  items-center">
+          className=" footer footer-horizontal footer-center text-white rounded p-10 flex flex-col space-y-6  items-center " >
+         <div>
+           <ul className="flex md:flex-row justify-center   space-x-2  items-center">
             <li>
               <Link className="text-white" to="/">
                 Home
@@ -46,8 +37,9 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
+         </div>
 
-          <nav>
+          <div>
             <div className="grid grid-flow-col gap-4 justify-center">
               <a>
                 <svg
@@ -83,13 +75,13 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-          </nav>
+          </div>
 
           <aside className="text-center">
             <p>
               Copyright © {new Date().getFullYear()} - All rights reserved by{' '}
-              <span className="font-bold text-black">Epoch</span>
-              <span className="font-bold text-white">Vault</span>
+              <span className="font-bold text-black">Artifact</span>
+              <span className="font-bold text-white">Atlas</span>
             </p>
           </aside>
         </footer>

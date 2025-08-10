@@ -10,7 +10,7 @@ const About = () => {
               Preserving History for Future Generations
             </h2>
             <p className="text-base sm:text-lg text-gray-600 mb-6 leading-relaxed">
-              EpochVault is more than just a catalog of artifacts—it's a community-driven platform where history comes alive.
+              ArtifactAtlas is more than just a catalog of artifacts—it's a community-driven platform where history comes alive.
               Our mission is to make historical artifacts accessible to everyone, fostering a deeper understanding and appreciation
               of our shared human heritage.
             </p>

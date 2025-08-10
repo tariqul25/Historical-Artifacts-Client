@@ -3,13 +3,14 @@ import { Link, useParams } from 'react-router';
 import { HistoryContext } from '../contexts/HistoryContext';
 import { ArrowLeft, Eye, Heart, Calendar, MapPin, User } from 'lucide-react';
 import useAxiosSecure from '../hooks/useAxiosSecure';
+import Loading from './Loading';
 
 const ArtifactDetails = () => {
   const { user } = useContext(HistoryContext);
   const userEmail = user?.email;
   const axiosSecure = useAxiosSecure();
 
-  const { id } = useParams();  // get artifact id from route params
+  const { id } = useParams(); 
 
   const [artifact, setArtifact] = useState(null);
   const [likeCount, setLikeCount] = useState(0);
@@ -65,16 +66,16 @@ const ArtifactDetails = () => {
     }
   };
 
-  if (loading) return <div>Loading artifact...</div>;
+  if (loading) return <Loading></Loading>;
   if (!artifact) return <div>Artifact not found</div>;
 
   return (
     <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 min-h-screen">
-      <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 ">
         {/* Back Button */}
         <div className="mb-6">
           <Link to="/all-artifacts">
-            <button className="inline-flex items-center border border-gray-300 rounded px-4 py-2 text-sm hover:bg-amber-50 transition">
+            <button className="inline-flex items-center border cursor-pointer border-gray-300 text-black rounded px-4 py-2 text-sm hover:bg-amber-50 transition">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to All Artifacts
             </button>
@@ -83,12 +84,13 @@ const ArtifactDetails = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Image + Quick Stats */}
-          <div className="space-y-4">
+          <div>
+            <div className="space-y-4">
             <div className="overflow-hidden rounded-lg shadow-sm border">
               <img
                 src={artifact.image}
                 alt={artifact.artifactName}
-                className="w-full h-64 sm:h-80 lg:h-[500px] object-cover"
+                className="w-full h-100 lg:h-[500px] object-cover"
               />
             </div>
 
@@ -105,13 +107,14 @@ const ArtifactDetails = () => {
               </div>
             </div>
           </div>
+          </div>
 
           {/* Details Section */}
-          <div className="space-y-6">
+          <div className="space-y-2">
             <div className="border rounded-lg shadow-sm p-6">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div className="flex-1">
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+                  <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-black">
                     {artifact.artifactName}
                   </h2>
                   <span className="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded">
@@ -135,40 +138,40 @@ const ArtifactDetails = () => {
               </p>
             </div>
 
-            <div className="border rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-bold mb-2">Historical Context</h3>
-              <p className="text-gray-700 leading-relaxed">{artifact.historicalContext}</p>
+            <div className="border rounded-lg shadow-sm p-3">
+              <h3 className="text-xl font-bold mb-2 text-black">Historical Context</h3>
+              <p className="text-gray-700 max-h-12 overflow-y-scroll no-scrollbar leading-relaxed">{artifact.historicalContext}</p>
             </div>
 
-            <div className="border rounded-lg shadow-sm p-6 space-y-4">
-              <h3 className="text-xl font-bold mb-4">Artifact Information</h3>
+            <div className="border rounded-lg shadow-sm p-3 space-y-4">
+              <h3 className="text-xl font-bold mb-4 text-black">Artifact Information</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="flex items-center space-x-3">
                   <Calendar className="w-5 h-5 text-amber-600" />
                   <div>
                     <p className="text-sm text-gray-500">Created</p>
-                    <p className="font-medium">{artifact.createdAt}</p>
+                    <p className="font-medium text-black">{artifact.createdAt}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-amber-600" />
                   <div>
                     <p className="text-sm text-gray-500">Discovered At</p>
-                    <p className="font-medium">{artifact.discoveredAt}</p>
+                    <p className="font-medium text-black">{artifact.discoveredAt}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <User className="w-5 h-5 text-amber-600" />
                   <div>
                     <p className="text-sm text-gray-500">Discovered By</p>
-                    <p className="font-medium">{artifact.discoveredBy}</p>
+                    <p className="font-medium text-black">{artifact.discoveredBy}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="w-5 h-5 text-amber-600" />
                   <div>
                     <p className="text-sm text-gray-500">Present Location</p>
-                    <p className="font-medium">{artifact.presentLocation}</p>
+                    <p className="font-medium text-black">{artifact.presentLocation}</p>
                   </div>
                 </div>
               </div>
@@ -177,7 +180,7 @@ const ArtifactDetails = () => {
 
               <div>
                 <p className="text-sm text-gray-500 mb-1">Added by</p>
-                <p className="font-medium">{artifact.userName}</p>
+                <p className="font-medium text-black">{artifact.userName}</p>
                 <p className="text-sm text-gray-600">{artifact.userEmail}</p>
               </div>
             </div>

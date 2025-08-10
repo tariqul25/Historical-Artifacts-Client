@@ -69,7 +69,7 @@ const Register = () => {
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 sm:p-8">
         <div className="text-center mb-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Create Account</h2>
-          <p className="text-gray-600 mt-2 text-sm sm:text-base">Join the EpochVault community</p>
+          <p className="text-gray-600 mt-2 text-sm sm:text-base">Join the ArtifactAtlas community</p>
         </div>
         <form onSubmit={handleEmailRegister} className="space-y-4">
           <div>

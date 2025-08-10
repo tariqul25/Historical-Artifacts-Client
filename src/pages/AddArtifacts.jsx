@@ -64,23 +64,23 @@ const AddArtifact = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 min-h-screen">
+    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 min-h-screen mt-12">
       <div className="max-w-4xl mx-auto px-4 py-8 sm:px-6 md:px-8 lg:px-12">
         <div className="text-center mb-8">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4">
             Add New Artifact
           </h1>
-          <p className="text-gray-600 text-base sm:text-lg md:text-xl">
+          <p className="text-black sm:text-lg md:text-xl">
             Share a piece of history with the world
           </p>
         </div>
 
         <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-          <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 py-4">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Artifact Details</h2>
+          <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white dark:text-black px-6 py-4">
+            <h2 className="text-xl sm:text-2xl text-white md:text-3xl font-bold">Artifact Details</h2>
           </div>
 
-          <div className="p-6 sm:p-8 md:p-10">
+          <div className="p-6 sm:p-8 md:p-10 text-black">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>

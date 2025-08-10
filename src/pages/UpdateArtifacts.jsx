@@ -59,12 +59,12 @@ const UpdateArtifact = () => {
 
   return (
     <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 flex flex-col items-center py-8 px-4 sm:px-6 md:px-10 lg:px-16">
-      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10">
+      <div className="w-full max-w-4xl bg-white shadow-lg text-blacka rounded-lg p-6 sm:p-8 md:p-10">
         <div className="mb-6 sm:mb-8 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
             Update Artifact
           </h1>
-          <p className="text-gray-600 text-sm sm:text-base md:text-lg">
+          <p className="text-black text-sm sm:text-base md:text-lg">
             Edit your artifact details
           </p>
         </div>
@@ -194,7 +194,7 @@ const UpdateArtifact = () => {
             <Link to={`/shareartifacts/${user?.email}`}>
               <button
                 type="button"
-                className="border border-gray-400 px-6 py-3 rounded hover:bg-gray-100 w-full sm:w-auto"
+                className="border border-gray-400 cursor-pointer px-6 py-3 rounded hover:bg-gray-100 w-full sm:w-auto"
               >
                 Cancel
               </button>

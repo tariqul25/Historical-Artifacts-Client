@@ -71,7 +71,7 @@ const MyArtifacts = () => {
 
 
     return (
-        <div className=" bg-gradient-to-br from-amber-50 via-white to-orange-50">
+        <div className=" bg-gradient-to-br from-amber-50 via-white to-orange-50 mt-12">
             <div className="max-w-7xl mx-auto px-4 py-8">
                 <div className="text-center mb-8">
                     <h1 className="text-4xl font-bold text-gray-800 mb-4">My Artifacts</h1>
@@ -90,7 +90,7 @@ const MyArtifacts = () => {
                                 <h3 className="text-xl font-semibold text-gray-700 mb-2">
                                     No artifacts yet
                                 </h3>
-                                <p className="text-gray-500 mb-6">
+                                <p className="text-white dark:text-black mb-6">
                                     You haven&apos;t added any artifacts to the collection yet. Start by adding your first historical artifact!
                                 </p>
                                 <Link to='/add-artifacts' className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded">
@@ -127,7 +127,7 @@ const MyArtifacts = () => {
                                 </thead>
                                 <tbody>
                                     {myArtifacts.map((artifact) => (
-                                        <tr key={artifact._id} className="border-b hover:bg-gray-50">
+                                        <tr key={artifact._id} className="border-b hover:bg-gray-50 text-black ">
                                             <td className="px-4 py-3">
                                                 <img
                                                     src={artifact.image}
@@ -135,7 +135,7 @@ const MyArtifacts = () => {
                                                     className="w-16 h-16 object-cover rounded"
                                                 />
                                             </td>
-                                            <td className="px-4 py-3">{artifact.artifactName}</td>
+                                            <td className="px-4 py-3 ">{artifact.artifactName}</td>
                                             <td className="px-4 py-3">{artifact.artifactType}</td>
                                             <td className="px-4 py-3">{artifact.createdAt}</td>
                                             <td className="px-4 py-3 flex items-center  gap-1 mt-5">

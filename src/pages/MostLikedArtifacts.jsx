@@ -4,7 +4,7 @@ import { Calendar, MapPin, Heart, Eye, ArrowRight, Sparkles } from 'lucide-react
 import useAxiosSecure from '../hooks/useAxiosSecure';
 
 
-const MostLikedArtifacts = ({ onView, onSeeAll }) => {
+const MostLikedArtifacts = () => {
   const [allArtifacts, setAllArtifacts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -83,13 +83,10 @@ const MostLikedArtifacts = ({ onView, onSeeAll }) => {
                     <span className="font-medium">{artifact.liked}</span>
                   </div>
 
-                  <button
-                    onClick={() => onView(artifact._id || artifact.id)}
-                    className="inline-flex items-center text-sm text-amber-600 hover:text-amber-700 px-2 py-1 border border-amber-600 rounded hover:bg-amber-50 transition"
-                  >
+                  <Link to={`/artifactsdetails/${artifact._id}`}><button className="inline-flex items-center cursor-pointer text-sm text-amber-600 hover:text-amber-700 px-2 py-1 border border-amber-600 rounded hover:bg-amber-50 transition">
                     <Eye className="w-4 h-4 mr-1" />
                     View Details
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             </div>
@@ -98,13 +95,10 @@ const MostLikedArtifacts = ({ onView, onSeeAll }) => {
       )}
 
       <div className="text-center">
-        <button
-          onClick={onSeeAll}
-          className="inline-flex items-center bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 text-lg rounded transition"
-        >
+       <Link to='/all-artifacts'> <button className="inline-flex items-center cursor-pointer bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 text-lg rounded transition">
           See All Artifacts
           <ArrowRight className="w-5 h-5 ml-2" />
-        </button>
+        </button></Link>
       </div>
     </section>
   );

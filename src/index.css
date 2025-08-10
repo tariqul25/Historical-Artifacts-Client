@@ -5,3 +5,7 @@ a.active{
    color: #d97706;         
   background-color: #e3ddc5; 
   }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; 
+}
