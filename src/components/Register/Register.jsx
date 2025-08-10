@@ -1,22 +1,33 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { HistoryContext } from '../../contexts/HistoryContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.init';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
 const Register = () => {
   const { createUser,googleSignIn } = use(HistoryContext);
-  
+  const [profilePic,setProfilePic]=useState('')
   const navigate = useNavigate();
+
+  const handleImageUpload= async(e)=>{
+    const image=e.target.files[0]
+    const formData=new FormData();
+    formData.append('image',image);
+    const imgUploadUrl=`https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_upload_key}`
+    console.log(imgUploadUrl);
+    const res=await axios.post(imgUploadUrl,formData)
+    setProfilePic(res.data.data.url)
+  }
 
   const handleEmailRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const user = Object.fromEntries(formData.entries());
-    const { name, email, password, photoUrl } = user;
+    const { name, email, password } = user;
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
@@ -32,7 +43,7 @@ const Register = () => {
       .then(() => {
         updateProfile(auth.currentUser, {
           displayName: name,
-          photoURL: photoUrl,
+          photoURL: profilePic
         })
           .then(() => {
             Swal.fire({
@@ -96,7 +107,7 @@ const Register = () => {
               id="name"
               required
               placeholder="Enter your full name"
-              className="w-full border border-gray-300 text-black  rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
@@ -115,12 +126,12 @@ const Register = () => {
           <div>
             <label htmlFor="photoUrl" className="block text-black text-sm font-medium mb-1">Photo URL</label>
             <input
-              type="text"
+              type="file"
               name="photoUrl"
               id="photoUrl"
+              onChange={handleImageUpload}
               required
-              placeholder="Enter your photo URL"
-              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full border cursor-pointer border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
