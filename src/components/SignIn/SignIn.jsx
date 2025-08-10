@@ -60,14 +60,14 @@ const SignIn = () => {
   return (
     <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 flex items-center justify-center px-4 py-16 min-h-screen">
       <div className="w-full max-w-md bg-white shadow-lg rounded-lg p-6 sm:p-8 md:p-10">
-        <h2 className="text-2xl sm:text-3xl text-center font-bold mb-2">Welcome Back</h2>
+        <h2 className="text-2xl sm:text-3xl text-black text-center font-bold mb-2">Welcome Back</h2>
         <p className="text-center text-gray-600 mb-6 text-sm sm:text-base">
           Sign in to your ArtifactAtlas account
         </p>
 
         <form onSubmit={handlePassLogin} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm mb-1 font-medium">
+            <label htmlFor="email" className="block text-black text-sm mb-1 font-medium">
               Email
             </label>
             <input
@@ -76,12 +76,12 @@ const SignIn = () => {
               type="email"
               placeholder="Enter your email"
               required
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+              className="w-full text-black border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm mb-1 font-medium">
+            <label htmlFor="password" className="block text-black text-sm mb-1 font-medium">
               Password
             </label>
             <input
@@ -90,7 +90,7 @@ const SignIn = () => {
               type="password"
               placeholder="Enter your password"
               required
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+              className="w-full border border-gray-300 rounded text-black px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
             />
           </div>
 
@@ -113,7 +113,7 @@ const SignIn = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className="w-full border border-gray-300 py-2 rounded cursor-pointer flex items-center justify-center bg-white hover:bg-gray-50 transition-colors text-sm sm:text-base"
+          className="w-full border text-black border-gray-300 py-2 rounded cursor-pointer flex items-center justify-center bg-white hover:bg-gray-50 transition-colors text-sm sm:text-base"
         >
           <svg
             className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
@@ -128,9 +128,9 @@ const SignIn = () => {
           Continue with Google
         </button>
 
-        <p className="text-center text-sm mt-6">
+        <p className="text-center text-black text-sm mt-6">
           Don't have an account?{' '}
-          <Link to="/register" className="text-amber-600 hover:text-amber-700 font-medium">
+          <Link to="/register" className="text-amber-600  hover:text-amber-700 font-medium">
             Sign up
           </Link>
         </p>

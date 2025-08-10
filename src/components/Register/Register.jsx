@@ -7,7 +7,8 @@ import Swal from 'sweetalert2';
 
 
 const Register = () => {
-  const { createUser } = use(HistoryContext);
+  const { createUser,googleSignIn } = use(HistoryContext);
+  
   const navigate = useNavigate();
 
   const handleEmailRegister = (e) => {
@@ -59,10 +60,25 @@ const Register = () => {
       });
   };
 
-  const handleGoogleRegister = () => {
-    // TODO: Add Google auth logic here
-    Swal.fire('Google Register clicked');
-  };
+  const handleGoogleSignIn = () => {
+      googleSignIn()
+        .then(() => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Signed in successfully',
+            timer: 1500,
+            showConfirmButton: false,
+          });
+          navigate(location.state?.from?.pathname || '/');
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Google Sign-In Failed',
+            text: error.message,
+          });
+        });
+    };
 
   return (
     <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 flex items-center justify-center px-4 py-12 min-h-screen">
@@ -73,50 +89,50 @@ const Register = () => {
         </div>
         <form onSubmit={handleEmailRegister} className="space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium mb-1">Full Name</label>
+            <label htmlFor="name" className="block text-black text-sm font-medium mb-1">Full Name</label>
             <input
               type="text"
               name="name"
               id="name"
               required
               placeholder="Enter your full name"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full border border-gray-300 text-black  rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-sm font-medium mb-1">Email</label>
+            <label htmlFor="email" className="block text-black text-sm font-medium mb-1">Email</label>
             <input
               type="email"
               name="email"
               id="email"
               required
               placeholder="Enter your email"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           <div>
-            <label htmlFor="photoUrl" className="block text-sm font-medium mb-1">Photo URL</label>
+            <label htmlFor="photoUrl" className="block text-black text-sm font-medium mb-1">Photo URL</label>
             <input
               type="text"
               name="photoUrl"
               id="photoUrl"
               required
               placeholder="Enter your photo URL"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
           <div>
-            <label htmlFor="password" className="block text-sm font-medium mb-1">Password</label>
+            <label htmlFor="password" className="block text-black text-sm font-medium mb-1">Password</label>
             <input
               type="password"
               name="password"
               id="password"
               required
               placeholder="Enter your password"
-              className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
+              className="w-full border border-gray-300 text-black rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500"
             />
           </div>
 
@@ -135,8 +151,8 @@ const Register = () => {
 
         <button
           type="button"
-          onClick={handleGoogleRegister}
-          className="w-full border border-gray-300 py-2 rounded hover:bg-gray-50 cursor-pointer flex items-center justify-center"
+          onClick={handleGoogleSignIn}
+          className="w-full text-black border border-gray-300 py-2 rounded hover:bg-gray-50 cursor-pointer flex items-center justify-center"
         >
           <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
             <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />

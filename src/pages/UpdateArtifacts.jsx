@@ -58,10 +58,10 @@ const UpdateArtifact = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 flex flex-col items-center py-8 px-4 sm:px-6 md:px-10 lg:px-16">
+    <div className="bg-gradient-to-br from-amber-50 via-white to-orange-50 flex flex-col items-center py-8 px-4 sm:px-6 md:px-10 lg:px-16 mt-12">
       <div className="w-full max-w-4xl bg-white shadow-lg text-blacka rounded-lg p-6 sm:p-8 md:p-10">
         <div className="mb-6 sm:mb-8 text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-1 sm:mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl text-black font-bold mb-1 sm:mb-2 ">
             Update Artifact
           </h1>
           <p className="text-black text-sm sm:text-base md:text-lg">
@@ -72,33 +72,33 @@ const UpdateArtifact = () => {
         <form onSubmit={handleUpdate} className="space-y-4 sm:space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Artifact Name</p>
+              <p className="font-semibold text-black mb-1 text-sm sm:text-base">Artifact Name</p>
               <input
                 type="text"
                 name="artifactName"
                 defaultValue={artifact.artifactName}
                 required
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+                className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
               />
             </div>
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Image URL</p>
+              <p className="font-semibold text-black mb-1 text-sm sm:text-base">Image URL</p>
               <input
                 type="url"
                 name="image"
                 defaultValue={artifact.image}
                 required
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+                className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
               />
             </div>
           </div>
 
           <div>
-            <p className="font-semibold mb-1 text-sm sm:text-base">Artifact Type</p>
+            <p className="font-semibold mb-1 text-black text-sm sm:text-base">Artifact Type</p>
             <select
               name="artifactType"
               defaultValue={artifact.artifactType}
-              className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+              className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
             >
               {artifactTypes.map((type) => (
                 <option key={type} value={type}>{type}</option>
@@ -107,79 +107,79 @@ const UpdateArtifact = () => {
           </div>
 
           <div>
-            <p className="font-semibold mb-1 text-sm sm:text-base">Historical Context</p>
+            <p className="font-semibold mb-1 text-black text-sm sm:text-base">Historical Context</p>
             <textarea
               name="historicalContext"
               rows="3"
               defaultValue={artifact.historicalContext}
               required
-              className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+              className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Created At</p>
+              <p className="font-semibold mb-1  text-black text-sm sm:text-base">Created At</p>
               <input
                 type="text"
                 name="createdAt"
                 defaultValue={artifact.createdAt}
                 required
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+                className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
               />
             </div>
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Discovered At</p>
+              <p className="font-semibold mb-1 text-black text-sm sm:text-base">Discovered At</p>
               <input
                 type="text"
                 name="discoveredAt"
                 defaultValue={artifact.discoveredAt}
                 required
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+                className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Discovered By</p>
+              <p className="font-semibold mb-1 text-black text-sm sm:text-base">Discovered By</p>
               <input
                 type="text"
                 name="discoveredBy"
                 defaultValue={artifact.discoveredBy}
                 required
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+                className="w-full text-black border border-gray-300 text-black rounded p-2 sm:p-3 text-sm sm:text-base"
               />
             </div>
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Present Location</p>
+              <p className="font-semibold mb-1 text-black text-sm sm:text-base">Present Location</p>
               <input
                 type="text"
                 name="presentLocation"
                 defaultValue={artifact.presentLocation}
                 required
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 text-sm sm:text-base"
+                className="w-full border border-gray-300 rounded p-2 text-black sm:p-3 text-sm sm:text-base"
               />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Your Email</p>
+              <p className="font-semibold mb-1 text-black text-sm sm:text-base">Your Email</p>
               <input
                 type="email"
                 value={user?.email || ""}
                 readOnly
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 bg-gray-100 text-sm sm:text-base"
+                className="w-full border text-black border-gray-300 rounded p-2 sm:p-3 bg-gray-100 text-sm sm:text-base"
               />
             </div>
             <div>
-              <p className="font-semibold mb-1 text-sm sm:text-base">Your Name</p>
+              <p className="font-semibold text-black mb-1 text-sm sm:text-base">Your Name</p>
               <input
                 type="text"
                 value={user?.displayName || ""}
                 readOnly
-                className="w-full border border-gray-300 rounded p-2 sm:p-3 bg-gray-100 text-sm sm:text-base"
+                className="w-full text-black border border-gray-300 rounded p-2 sm:p-3 bg-gray-100 text-sm sm:text-base"
               />
             </div>
           </div>
@@ -194,7 +194,7 @@ const UpdateArtifact = () => {
             <Link to={`/shareartifacts/${user?.email}`}>
               <button
                 type="button"
-                className="border border-gray-400 cursor-pointer px-6 py-3 rounded hover:bg-gray-100 w-full sm:w-auto"
+                className="border text-black border-gray-400 cursor-pointer px-6 py-3 rounded hover:bg-gray-100 w-full sm:w-auto"
               >
                 Cancel
               </button>
