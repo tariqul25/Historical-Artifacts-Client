@@ -2,8 +2,8 @@ import React from 'react';
 
 const Faq = () => {
   return (
-    <div className="pb-6 py-8 max-w-4xl mx-auto  px-4 sm:px-6 lg:px-8">
-      <h1 className="text-4xl  text-black dark:text-black text-center mb-6">Frequently Asked Questions</h1>
+    <div className="pb-6 py-16 max-w-4xl mx-auto  px-4 sm:px-6 lg:px-8">
+      <h1 className="text-4xl font-bold  text-black dark:text-black text-center mb-6">Frequently Asked Questions</h1>
 
       {[
         {

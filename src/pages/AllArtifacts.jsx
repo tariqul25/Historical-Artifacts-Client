@@ -140,8 +140,8 @@ const AllArtifacts = () => {
 
       {/* Artifact Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl px-4 sm:px-6">
-        {filteredArtifacts.length > 0 ? (
-          filteredArtifacts.map((artifact) => (
+        {filteredArtifacts?.length > 0 ? (
+          filteredArtifacts?.map((artifact) => (
             <div
               key={artifact._id}
               className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full border-2 border-amber-100 rounded-lg"

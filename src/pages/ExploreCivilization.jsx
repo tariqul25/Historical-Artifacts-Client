@@ -30,9 +30,9 @@ const civilizations = [
 
 const ExploreCivilization = () => {
   return (
-    <section id='explorecivilization' className="py-12 px-4 mt-20">
+    <section id='explorecivilization' className="py-8 px-4 mt-20">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">🌍 Explore by Civilization</h2>
+        <h2 className="text-4xl font-bold text-gray-800 mb-6">🌍 Explore by Civilization</h2>
         <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
           Dive into historical treasures categorized by ancient civilizations.
         </p>
